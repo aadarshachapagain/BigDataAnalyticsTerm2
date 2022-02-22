@@ -1,0 +1,37 @@
+Introduction to Power BI Desktop
+
+Q1: Load “Product Details.xlsx” (DimProductSubcategory, DimProductCategory, and DimProduct) file and create a Report using the following visual-
+
+·  Text box- put the report name.
+
+·  Barchart- Category-wise Product weight.
+
+·  Pie chart- Implement the drill through features using ProductCategory, ProductSubcategory, and StandardCost.
+
+·  Card visual- Total list price of the product (Sum Value).
+
+·  Table Visual- Add Category, Subcategory, ProductName, Size, Colour, StandardCost, and ListPrice.
+
+·  Finally, publish the report to the Power BI services.
+
+Note Filter the blank value using the Report level filter option.
+
+ 
+
+Q2: Load “Test Data.xlsx” (Sheet1) and create a Report using the following visuals-
+
+·  Text header - Write the Report name.
+
+·  Map visual – Country-wise sales for a particular year.
+
+·  Bar Visual - Product-wise Profit.
+
+·  Pie Visuals- Category-wise Profit.
+
+·  Line Visuals- Sales price by Order date.
+
+·  Table Visual- Put Order date, Category, Subcategory, Profit, and Sales.
+
+·  Finally, publish the report to the Power BI services.
+
+

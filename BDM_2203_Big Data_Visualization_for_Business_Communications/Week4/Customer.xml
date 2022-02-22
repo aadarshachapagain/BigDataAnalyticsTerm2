@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<Customers>
+	<Customer RegisterTime="2001-01-17">
+		<Name>
+			<id>1</id>
+			<CustomerName>Griffith Paving and Sealcoatin</CustomerName>
+		</Name>
+		<Address>
+			<CustomerAddress>XYZ Taxas Road -67909</CustomerAddress>
+			<idState>2</idState>
+		</Address>
+		<Revenue>
+			<Sum1>67852</Sum1>
+		</Revenue>
+	</Customer>
+	<Customer RegisterTime="2002-06-07">
+		<Name>
+			<id>2</id>
+			<CustomerName>Bill's Dive Shop</CustomerName>
+		</Name>
+		<Address>
+			<CustomerAddress>511 Maple Ave. Apt. 1B</CustomerAddress>
+			<idState>3</idState>
+		</Address>
+		<Revenue>
+			<Sum1>88792</Sum1>
+		</Revenue>
+	</Customer>
+	<Customer RegisterTime="1987-02-23">
+		<Name>
+			<id>3</id>
+			<CustomerName>Glenn Oaks Office Supplies</CustomerName>
+		</Name>
+		<Address>
+			<CustomerAddress>1859 Green Bay Rd.</CustomerAddress>
+			<idState>2</idState>
+		</Address>
+		<Revenue>
+			<Sum1>1225.</Sum1>
+		</Revenue>
+	</Customer>
+	<Customer RegisterTime="1992-04-28">
+		<Name>
+			<id>4</id>
+			<CustomerName>DBN Bank</CustomerName>
+		</Name>
+		<Address>
+			<CustomerAddress>456 Grossman Ln.</CustomerAddress>
+			<idState>3</idState>
+		</Address>
+		<Revenue>
+			<Sum1>64493</Sum1>
+		</Revenue>
+	</Customer>
+</Customers>

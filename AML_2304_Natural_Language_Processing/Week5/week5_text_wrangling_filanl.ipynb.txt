@@ -1,0 +1,553 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "week5_text_wrangling_filanl.ipynb",
+      "provenance": [],
+      "collapsed_sections": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Part of Speach"
+      ],
+      "metadata": {
+        "id": "6lUvgZN0BjfU"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "r1ZKWZtx0KCG",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "a7037bd9-48e6-40bc-a62c-5f20f73243f1"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[nltk_data] Downloading package punkt to /root/nltk_data...\n",
+            "[nltk_data]   Unzipping tokenizers/punkt.zip.\n",
+            "[nltk_data] Downloading package averaged_perceptron_tagger to\n",
+            "[nltk_data]     /root/nltk_data...\n",
+            "[nltk_data]   Unzipping taggers/averaged_perceptron_tagger.zip.\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "True"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 1
+        }
+      ],
+      "source": [
+        "import nltk\n",
+        "nltk.download('punkt')\n",
+        "nltk.download('averaged_perceptron_tagger')"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "txt = \"They refuse to permit us to obtain the refuse permit\""
+      ],
+      "metadata": {
+        "id": "dEeWTNPb0Rwm"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# after doing some reg ex cleaning etc.... make pos\n",
+        "part_of_speach = (nltk.pos_tag(nltk.word_tokenize(txt),))"
+      ],
+      "metadata": {
+        "id": "qCSHRjQi0Z8w"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "part_of_speach"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "7na4jo2G0dv2",
+        "outputId": "d568fff4-07b4-48d7-e763-364a4aa5bb53"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[('They', 'PRP'),\n",
+              " ('refuse', 'VBP'),\n",
+              " ('to', 'TO'),\n",
+              " ('permit', 'VB'),\n",
+              " ('us', 'PRP'),\n",
+              " ('to', 'TO'),\n",
+              " ('obtain', 'VB'),\n",
+              " ('the', 'DT'),\n",
+              " ('refuse', 'NN'),\n",
+              " ('permit', 'NN')]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 5
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# smart feature\n",
+        "# 1. make a list of all the second element in part-Of_speach\n",
+        "part_of_speach = [i[1] for i in part_of_speach]"
+      ],
+      "metadata": {
+        "id": "-9y0FwSx1vFe"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "part_of_speach"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "JzAJam3dBAoG",
+        "outputId": "a15ccacb-0617-4b56-80cc-d3cc794d0792"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['PRP', 'VBP', 'TO', 'VB', 'PRP', 'TO', 'VB', 'DT', 'NN', 'NN']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# word tokenize the document\n",
+        "word_token = nltk.word_tokenize(txt)\n",
+        "# concat word tokens and part of speach togather\n",
+        "taged_document = [word+\"_\"+pos for word,pos in zip(word_token,part_of_speach )]"
+      ],
+      "metadata": {
+        "id": "I2PU8i4m5xCk"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# # with for lop=op\n",
+        "# import pdb\n",
+        "# tagged_document = []\n",
+        "# pdb.set_trace()\n",
+        "# for word,pos in zip(word_token,part_of_speach):\n",
+        "#   tagged_document.append(word+\"_\"+pos)"
+      ],
+      "metadata": {
+        "id": "dfDkiYvKv-Ri"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(taged_document)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "f9jvT1_d_Ai7",
+        "outputId": "b0a57faa-7eaa-4daa-8407-b06ece48e83c"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "['They_PRP', 'refuse_VBP', 'to_TO', 'permit_VB', 'us_PRP', 'to_TO', 'obtain_VB', 'the_DT', 'refuse_NN', 'permit_NN']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Name Entity Recognition"
+      ],
+      "metadata": {
+        "id": "Kasqo8ZnEyBq"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "nltk.download('maxent_ne_chunker')\n",
+        "nltk.download('words')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Qqwnp7JhFaNt",
+        "outputId": "509c2e45-aea6-4e1a-9eca-4f99f53f2f93"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[nltk_data] Downloading package maxent_ne_chunker to\n",
+            "[nltk_data]     /root/nltk_data...\n",
+            "[nltk_data]   Unzipping chunkers/maxent_ne_chunker.zip.\n",
+            "[nltk_data] Downloading package words to /root/nltk_data...\n",
+            "[nltk_data]   Unzipping corpora/words.zip.\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "True"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 10
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "txt = \"Adam and Tom play Badminton. They live in New York and London.\""
+      ],
+      "metadata": {
+        "id": "gsTVkrXsBgUU"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "for chunk in nltk.ne_chunk(nltk.pos_tag(nltk.word_tokenize(txt))):\n",
+        "     if hasattr(chunk, 'label'):\n",
+        "        print(chunk.label(), ' '.join(c[0] for c in chunk))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_FjxaKc0KXbb",
+        "outputId": "bb0439b3-0de8-4261-f2a5-873060fdf828"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "PERSON Adam\n",
+            "PERSON Tom\n",
+            "PERSON Badminton\n",
+            "GPE New York\n",
+            "GPE London\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Collection Extrction"
+      ],
+      "metadata": {
+        "id": "9szJfeUG2_kj"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from nltk import ngrams\n",
+        "sentence = 'I play indoor stadium and eat fast food'\n",
+        "n = 2\n",
+        "n_grams = ngrams(sentence.split(), n)\n",
+        "collection_extracted = [grams for grams in n_grams]\n",
+        "print(collection_extracted)"
+      ],
+      "metadata": {
+        "id": "ytLhdS_TM_uc",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "b4efaca1-6849-4a7f-9406-cf98cb0be381"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[('I', 'play'), ('play', 'indoor'), ('indoor', 'stadium'), ('stadium', 'and'), ('and', 'eat'), ('eat', 'fast'), ('fast', 'food')]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Synonyms"
+      ],
+      "metadata": {
+        "id": "LSPa446tBRuo"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "nltk.download('wordnet')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "zLzpyAo4By8o",
+        "outputId": "6e5713cf-f18d-40f0-e642-2f234fee4146"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[nltk_data] Downloading package wordnet to /root/nltk_data...\n",
+            "[nltk_data]   Unzipping corpora/wordnet.zip.\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "True"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from nltk.corpus import wordnet\n",
+        "from itertools import chain\n",
+        "synonyms = wordnet.synsets('happy')\n",
+        "syn = (list(set(chain.from_iterable([word.lemma_names() for word in synonyms]))))"
+      ],
+      "metadata": {
+        "id": "oQN-lOMzBRE0"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(syn)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "eDxmPVDfG95Z",
+        "outputId": "0f1e2e7d-aa6d-4458-c2d4-b74ad8660eab"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "['felicitous', 'well-chosen', 'glad', 'happy']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# corpus \n",
+        "txt = \"i am happy that you are glad too\""
+      ],
+      "metadata": {
+        "id": "CsxWs_Ef_h07"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# word tokenize\n",
+        "word_token = nltk.word_tokenize(txt)"
+      ],
+      "metadata": {
+        "id": "X-3ugUyfEr8v"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "word_token"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Ga1xSgi9E5VB",
+        "outputId": "ffe66308-72c6-403e-a53a-f55bc6294745"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['i', 'am', 'happy', 'that', 'you', 'are', 'glad', 'too']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 12
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "[\"happy\" if word in syn else word for word in word_token]"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "-eidG1jpEING",
+        "outputId": "7ea84fc2-c924-4a23-9a50-6f8aa2621eb6"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['i', 'am', 'happy', 'that', 'you', 'are', 'happy', 'too']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Spell Check"
+      ],
+      "metadata": {
+        "id": "CAuy3L6ZKCsT"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from nltk.metrics.distance  import edit_distance\n",
+        "from nltk.corpus import words\n",
+        "nltk.download('words')\n",
+        "entries = ['spleling', 'mispelling', 'reccomender']\n",
+        "correct_spellings = words.words()\n",
+        "\n",
+        "for entry in entries:\n",
+        "    temp = [(edit_distance(entry, w),w) for w in correct_spellings if w[0]==entry[0]]\n",
+        "    print(sorted(temp, key = lambda val:val[0])[0][1])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6LyANGL_KKWL",
+        "outputId": "b6bf5783-9b98-4446-9688-f9412895ea5a"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[nltk_data] Downloading package words to /root/nltk_data...\n",
+            "[nltk_data]   Package words is already up-to-date!\n",
+            "selling\n",
+            "misspelling\n",
+            "recommender\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        ""
+      ],
+      "metadata": {
+        "id": "PESYzZbbGjhV"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}

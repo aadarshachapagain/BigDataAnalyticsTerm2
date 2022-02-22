@@ -1,0 +1,8 @@
+Year,Country,Coach,Captain
+1930,Uruguay,Alberto Suppici,José Nasazzi
+1934,Italy,Vittorio Pozzo,Gianpiero Combi
+1938,Italy,Vittorio Pozzo,Giuseppe Meazza
+2002,Brazil,Luiz Felipe Scolari,Cafu
+2006,Italy,Marcello Lippi,Fabio Cannavaro
+2010,Spain,Vicente del Bosque,Iker Casillas
+2014,Germany,Joachim Löw,Philipp Lahm

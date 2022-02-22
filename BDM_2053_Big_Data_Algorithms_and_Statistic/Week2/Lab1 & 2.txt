@@ -1,0 +1,78 @@
+Exploratory Data Analysis Using Python (Jupyter Notebook)
+
+1.#import libraries
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+2.#import dataset
+cars = pd.read_csv('cardata.csv')
+
+3.#top five records
+cars.head()
+
+4.#data info
+cars.info()
+
+5.#drop unimportant variables
+drop_cols = ['MSRP', 'Invoice']
+
+6.#drop duplicate rows- if any
+cars = cars.drop_duplicates(keep='first')
+
+7.#shape of the data
+cars.shape
+
+8.#summary statistics
+cars.describe()
+
+9.#sorting a variable
+cars_sort= cars.sort_values(by='MPG', ascending=False.head()
+cars_sort.head()
+
+
+10.#replace space in column name
+cars.columns = cars.columns.str.replace(' ', '')
+
+11.#histogram of contieous numerical variable 
+num_bins=10
+plt.hist(cars['MPG'],num_bins)
+
+12.#probability density function-PDF
+sns.distplot(cars['MPG'],bins=10)
+
+13.#count by catagory - cross tabulate
+make_dist=cars.groupby('make).size()
+make_dist
+
+14.#Distribution of Categorical variable
+make_dist.plot(title='make Distribution')
+
+15.#select all numerical varibales
+cars_num = cars.select_dtypes([include='float64', 'int64'])
+
+16.all varibales ploting
+cars_num.hist(bins=20)
+
+17.#correlation with the varibale of interest
+cars_corr = cars_num.corr()['mpg'][:-1]
+cars_corr
+
+18.#correlation plots using 'pairplot'
+for i in range(0, len(cars_num.columns),5):
+	sns.pairplot(cars_num, y_vars=['MPG],x_vars=cars_num.columns[i:i+5])
+
+19.#box-plot(categorical variable)
+box1 = sns.boxplot(x='Type', y='MPG', data=cars)
+
+20.#regression plot
+sns.regplot(cars['Leng'],cars['MPG'])
+
+
+
+
+
+
+
+

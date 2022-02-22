@@ -1,0 +1,5 @@
+CREATE TABLE dbo.DimMyNewDate (
+    DateKey int NOT NULL,
+    FullDate date NOT NULL
+);
+GO

@@ -1,0 +1,2 @@
+PostalCode_AndExp = IF(max(Orders[Category] )  ="Office Supplies" && MAX(Orders[Sub-Category])="Storage", MAX(Orders[Postal Code]))
+Measure_Test_Greater = IF(Max(orders[Sales])<400,Max(Orders[Sales]))

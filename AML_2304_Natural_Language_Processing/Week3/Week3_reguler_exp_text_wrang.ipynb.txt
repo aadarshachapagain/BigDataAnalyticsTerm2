@@ -1,0 +1,1004 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Week3_reguler_exp_text_wrang.ipynb",
+      "provenance": [],
+      "collapsed_sections": [
+        "7WE18FxSp1kn",
+        "ZBUlQwCp30Z8",
+        "qD8zCQgy51fn"
+      ]
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Do you know text indexing & raw text ?"
+      ],
+      "metadata": {
+        "id": "ehhQ6ExToXeb"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "weyyDDmbc7_q",
+        "outputId": "6870ff52-ab5a-4f96-abbf-fe6f9741898f"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "e\n",
+            "h\n",
+            "e\n",
+            "l\n",
+            "l\n",
+            "o\n",
+            ",\n",
+            " \n",
+            "i\n",
+            " \n",
+            "a\n",
+            "m\n",
+            " \n",
+            "f\n",
+            "i\n",
+            "n\n",
+            "e\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Test indexing\n",
+        "txt = \"hello, i am fine\"\n",
+        "select_nth_alphabat = 0\n",
+        "\n",
+        "print(txt[-1])\n",
+        "\n",
+        "for i in txt:\n",
+        "  print(i)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# not a raw text\n",
+        "print (\"Hello \\n I would like to request ..\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1U29TfNfdJ-T",
+        "outputId": "67b379f6-191f-46c3-a407-e30bb695e1fd"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Hello \n",
+            " I would like to request ..\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# raw test \n",
+        "print (r\"Hello \\n I would like to request ..\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "pT2_4E7wehaS",
+        "outputId": "d951711a-44a6-4651-93b5-55f2606dce61"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Hello \\n I would like to request ..\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "name = \"Preti\"\n",
+        "print(f\"put some {name} here\") "
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "BUCSGMVvavD9",
+        "outputId": "52e31413-6645-4965-b76f-091e936c7943"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "put some Preti here\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Reguler Expression Functions: Simple examples\n"
+      ],
+      "metadata": {
+        "id": "GPDinBiKfj0h"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import re"
+      ],
+      "metadata": {
+        "id": "AW06eBTJewnV"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### split function"
+      ],
+      "metadata": {
+        "id": "jZXKpKDlm1u0"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def some(number:int) -> float:\n",
+        "  \"\"\" this function\n",
+        "  Args:\n",
+        "  number : its an inter between 1,5\n",
+        "\n",
+        "  output:\n",
+        "  returns a float\n",
+        "  \n",
+        "  does nothing\"\"\""
+      ],
+      "metadata": {
+        "id": "_lTLRubpbOBv"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "help(some)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "VHaUSYgrbYYx",
+        "outputId": "7bf28f2b-823f-4496-85fb-29eb0ee742f9"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Help on function some in module __main__:\n",
+            "\n",
+            "some()\n",
+            "    this function\n",
+            "    does nothing\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# help for split function\n",
+        "help(re.split)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "OZNGZtt6f17y",
+        "outputId": "d8c255b5-299e-42fb-ecf9-1c062feb59bf"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Help on function split in module re:\n",
+            "\n",
+            "split(pattern, string, maxsplit=0, flags=0)\n",
+            "    Split the source string by the occurrences of the pattern,\n",
+            "    returning a list containing the resulting substrings.  If\n",
+            "    capturing parentheses are used in pattern, then the text of all\n",
+            "    groups in the pattern are also returned as part of the resulting\n",
+            "    list.  If maxsplit is nonzero, at most maxsplit splits occur,\n",
+            "    and the remainder of the string is returned as the final element\n",
+            "    of the list.\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# defin the text\n",
+        "txt = r\"name - abc@com\"\n",
+        "\n",
+        "# feed the pattren\n",
+        "reg_ex  = re.compile(r\"-\")\n",
+        "\n",
+        "# apply the split function\n",
+        "reg_ex.split(txt)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "k0SJvJdkljaZ",
+        "outputId": "e6843028-a12e-4657-fc7c-4e5cc5ef5cfc"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['name ', ' abc@com']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 20
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### sub function"
+      ],
+      "metadata": {
+        "id": "kqOwlHR7m56v"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# help fo sub function\n",
+        "help(re.sub)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "XlEbMOLVgMhx",
+        "outputId": "be543e04-2767-40ec-ec3c-a7e30c6d6ddf"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Help on function sub in module re:\n",
+            "\n",
+            "sub(pattern, repl, string, count=0, flags=0)\n",
+            "    Return the string obtained by replacing the leftmost\n",
+            "    non-overlapping occurrences of the pattern in string by the\n",
+            "    replacement repl.  repl can be either a string or a callable;\n",
+            "    if a string, backslash escapes in it are processed.  If it is\n",
+            "    a callable, it's passed the Match object and must return\n",
+            "    a replacement string to be used.\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# defin the text\n",
+        "txt = r\"I am here to say hello to you\"\n",
+        "\n",
+        "# feed the pattren\n",
+        "reg_ex  = re.compile(r\"hello\")\n",
+        "\n",
+        "# apply the sub function\n",
+        "reg_ex.sub(\"hi\",txt)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 36
+        },
+        "id": "ZA2UhgfVgUMw",
+        "outputId": "cb6f5c8e-7964-4e6e-ef5b-4afaefa8dafb"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            },
+            "text/plain": [
+              "'I am here to say hi to you'"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 21
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "txt.replace(\"hello\",\"hi\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 36
+        },
+        "id": "ZUaeJ7xPeBRn",
+        "outputId": "0b391af1-f9c7-4ba6-f042-70ff2f10b48d"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            },
+            "text/plain": [
+              "'I am here to say hi to you'"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 22
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Special Patterns"
+      ],
+      "metadata": {
+        "id": "3JZyOKa9sRO0"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### \".\""
+      ],
+      "metadata": {
+        "id": "cCpDntuBwPYl"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# defin the text\n",
+        "txt = r\"I did bcom,  and you did mcom\"\n",
+        "# bcom and mcom are the same \n",
+        "\n",
+        "# feed the pattren\n",
+        "reg_ex  = re.compile(r\".com\")\n",
+        "\n",
+        "# apply the sub function\n",
+        "reg_ex.sub(\"commerce\",txt)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 36
+        },
+        "id": "orbIpSsSwaGc",
+        "outputId": "e39f7211-e504-49ae-c57b-4a26028f7bfa"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            },
+            "text/plain": [
+              "'I did commerce,  and you did commerce'"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 23
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### \"+\""
+      ],
+      "metadata": {
+        "id": "62RSObJ7scGX"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# defin the text\n",
+        "txt = r\"hi hii hiiiii fahad\"\n",
+        "# hi , hii and hiiii are same \n",
+        "\n",
+        "# feed the pattren\n",
+        "reg_ex  = re.compile(r\"hi+\")\n",
+        "\n",
+        "# apply the sub function\n",
+        "reg_ex.sub(\"hi\",txt)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 36
+        },
+        "id": "QPYefoLpn86z",
+        "outputId": "23ff2cdc-5b70-482a-dc6b-695a0cb3eddd"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            },
+            "text/plain": [
+              "'hi hi hi fahad'"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 25
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### \"[]\""
+      ],
+      "metadata": {
+        "id": "GWbLWOKI0eFO"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# defin the text\n",
+        "txt = r\"This is great work, you achieved 100% engagement on the @website\"\n",
+        "# remove all the character you want e.g. % sign or @ sign\n",
+        "\n",
+        "# feed the pattren\n",
+        "reg_ex  = re.compile(r\"[%@]\")\n",
+        "\n",
+        "# apply the sub function\n",
+        "reg_ex.sub(\"^\",txt)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 36
+        },
+        "id": "aQolNrh_srmC",
+        "outputId": "ef3cec69-fc59-4770-9c53-576d9fc277c9"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            },
+            "text/plain": [
+              "'This is great work, you achieved 100^ engagement on the ^website'"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 26
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### \"\\d\""
+      ],
+      "metadata": {
+        "id": "GWoMuuqg437z"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# defin the text\n",
+        "txt = r\"I have 3509876  marks , and you have 450 marks \"\n",
+        "# digit means numbers , for us they are the same\n",
+        "\n",
+        "# feed the pattren\n",
+        "reg_ex  = re.compile(r\"\\d+\")\n",
+        "\n",
+        "# apply the sub function\n",
+        "reg_ex.sub(\"number\",txt)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 36
+        },
+        "id": "gRhqhFFXy7U6",
+        "outputId": "c1eca591-12ae-4277-9a1c-28c3ea3f5ded"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            },
+            "text/plain": [
+              "'I have number  marks , and you have number marks '"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 29
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### more complicated pattern"
+      ],
+      "metadata": {
+        "id": "G97kfJbf-dsu"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# defin the text\n",
+        "txt = r\"You can reach me at +1-123-456-7890 or +1-321-789-1238\"\n",
+        "# digit means numbers , for us they are the same\n",
+        "\n",
+        "# feed the pattren\n",
+        "reg_ex  = re.compile(r\"\\+1-\\d{3}-\\d{3}-\\d{4}\")\n",
+        "\n",
+        "# apply the sub function\n",
+        "reg_ex.sub(\"number\",txt)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 36
+        },
+        "id": "rYp8e73p4_VM",
+        "outputId": "f57bcd5b-6f0b-4797-b456-4faca8d420d8"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            },
+            "text/plain": [
+              "'You can reach me at number or number'"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 30
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        " # Tokenization"
+      ],
+      "metadata": {
+        "id": "7WE18FxSp1kn"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import nltk\n",
+        "nltk.download('punkt')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "wJLxbx3y_Bn-",
+        "outputId": "555bdf27-0cad-4f8c-a894-9ddeb9f4ab09"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[nltk_data] Downloading package punkt to /root/nltk_data...\n",
+            "[nltk_data]   Unzipping tokenizers/punkt.zip.\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "True"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 1
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#santence tokaniz\n",
+        "nltk.tokenize.sent_tokenize(\"hello everyone. how are you\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "lPaD9tKwqSm_",
+        "outputId": "2820e4d8-de7d-4b6f-e2af-579c14ad99bc"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['hello everyone.', 'how are you']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# word tokanize\n",
+        "nltk.tokenize.word_tokenize(\"hello everyone, how are you\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "y1IrdGIwp6V_",
+        "outputId": "6f75b023-af07-4d2c-d975-62b6f5d85571"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['hello', 'everyone', ',', 'how', 'are', 'you']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 3
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Stopwords"
+      ],
+      "metadata": {
+        "id": "ZBUlQwCp30Z8"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import nltk\n",
+        "from nltk.corpus import stopwords\n",
+        "nltk.download('stopwords')\n",
+        "list_of_stop_words = stopwords.words('english')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ABJwsm0H31nn",
+        "outputId": "f50e0724-9da7-473f-db9b-b11751912c3b"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[nltk_data] Downloading package stopwords to /root/nltk_data...\n",
+            "[nltk_data]   Unzipping corpora/stopwords.zip.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "list_of_stop_words[100:105]"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "5p0KEd-S4CV6",
+        "outputId": "0500e7c2-2258-408c-a2b5-198fb138cc61"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['here', 'there', 'when', 'where', 'why']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# removing stop words\n",
+        "# first , tokenize\n",
+        "tokens = nltk.tokenize.word_tokenize(\"hello there, how is everyone one doing\")\n",
+        "tokens"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "f_jspf6I5b9v",
+        "outputId": "c520c259-a75a-4fa9-d0ac-5eddd09d0377"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['hello', 'there', ',', 'how', 'is', 'everyone', 'one', 'doing']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 9
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# remove stop words using for loop or a list comprehension\n",
+        "token_without_stopwords = [i for i in tokens if i not in list_of_stop_words]"
+      ],
+      "metadata": {
+        "id": "jE-arSDkryY7"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "token_without_stopwords"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "tLktNznzsoF7",
+        "outputId": "67d4547d-206b-44f2-ddc0-2de86979a987"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['hello', ',', 'everyone', 'one']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 12
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Stemming"
+      ],
+      "metadata": {
+        "id": "P2XqMgBN1Unw"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# import the PorterStemmer\n",
+        "from nltk.stem import PorterStemmer\n",
+        "# make an instance of the PorterStemmer class\n",
+        "ps = PorterStemmer()"
+      ],
+      "metadata": {
+        "id": "K2ROLRRtspZp"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# use a for loop or list comprehension to stem every word\n",
+        "# Remember to Tokenize the text first\n",
+        "tokens = ['programs','programmer','programming','program']\n",
+        "[ps.stem(i) for i in tokens]"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "KZQNPuT21phQ",
+        "outputId": "ebc7ca7d-85e0-4c6b-f3e2-07f67911335b"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['program', 'programm', 'program', 'program']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 15
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Lemmatization"
+      ],
+      "metadata": {
+        "id": "qD8zCQgy51fn"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import nltk\n",
+        "nltk.download('wordnet')\n",
+        "# import the Lemmatizer\n",
+        "from nltk.stem import WordNetLemmatizer\n",
+        "lem = WordNetLemmatizer()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "xnA4p4_f13OP",
+        "outputId": "5bd934d4-fd01-4e95-f311-664727cf19df"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[nltk_data] Downloading package wordnet to /root/nltk_data...\n",
+            "[nltk_data]   Unzipping corpora/wordnet.zip.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# use a for loop or list comprehension to lemm every word\n",
+        "# Remember to Tokenize the text first\n",
+        "tokens = ['programs','programmer','programming','program']\n",
+        "[lem.lemmatize (i) for i in tokens]"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "-6KKpB_K7yhb",
+        "outputId": "41c87323-baa2-4815-e806-2f4a9bce7fc4"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['program', 'programmer', 'programming', 'program']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 17
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        ""
+      ],
+      "metadata": {
+        "id": "oeTdPlGI8CQa"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}

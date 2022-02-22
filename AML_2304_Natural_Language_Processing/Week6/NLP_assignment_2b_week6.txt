@@ -1,0 +1,11 @@
+# assignment 2B
+
+Using same transformation methodologies (case normalization, number normalization, Punctuation,
+stop word removal and lemmatization) on the hold out data set (as depicted in the week6 code)
+obtain the F1 store for hold out data set. You can build something from scratch, or use classes
+you have already built or use the code that I have provided in the week's code.
+
+Bonus points if you improve your F1 score (on hold out) by doing some feature engineering through EDA
+or by using more advanced vectorization.
+
+Good luck
