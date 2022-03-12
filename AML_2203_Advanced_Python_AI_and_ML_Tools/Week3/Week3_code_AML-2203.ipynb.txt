@@ -1,0 +1,823 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Horizontal Vector\n",
+      "[1 2 3]\n",
+      "----------------\n",
+      "Vertical Vector\n",
+      "[[10]\n",
+      " [20]\n",
+      " [30]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# importing numpy\n",
+    "import numpy as np\n",
+    "\n",
+    "# creating a one-Dimensional list (Horizontal)\n",
+    "first_list = [14, 21, 35]\n",
+    "\n",
+    "# creating a one-Dimensional list (Vertical)\n",
+    "second_list = [[9],\n",
+    "\t\t[12],\n",
+    "\t\t[75]]\n",
+    "\n",
+    "# vector as row using the first list\n",
+    "first_vector = np.array(first_list)\n",
+    "\n",
+    "# vector as column using the second list\n",
+    "second_vector = np.array(second_list)\n",
+    "\n",
+    "\n",
+    "# showing horizontal vector\n",
+    "print(\"Horizontal Vector\")\n",
+    "print(vector1)\n",
+    "\n",
+    "# showing vertical vector\n",
+    "print(\"Vertical Vector\")\n",
+    "print(vector2)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Vector using arange method\n",
+      "[0 1 2 3 4]\n",
+      "Vector using zeros method\n",
+      "[[0.]\n",
+      " [0.]\n",
+      " [0.]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#other ways of creating a vector\n",
+    "\n",
+    "#vector using arange\n",
+    "\n",
+    "arange_vector = np.arange(5)\n",
+    "\n",
+    "#showing a vector created using arange method\n",
+    "print(\"Vector using arange method\")\n",
+    "print(arange_vector)\n",
+    "\n",
+    "#vector using zero \n",
+    "\n",
+    "zero_vector = np.zeros((3,1))\n",
+    "\n",
+    "#showing a vector created using zeros method\n",
+    "print(\"Vector using zeros method\")\n",
+    "print(zero_vector)\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Vector artihmetic operations\n",
+    "\n",
+    "#initiliasing the lists\n",
+    "l1 = [1,2,31,14,5]   \n",
+    "l2 = [6,17,8,9,10]  \n",
+    "   \n",
+    "#list to vectors\n",
+    "v1 = np.array(l1)   \n",
+    "v2= np.array(l2)   "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Sum of two vectors is: \n",
+      "[ 7 19 39 23 15]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Addition of two vectors\n",
+    "\n",
+    "#total=v1[0]+v2[0],v1[1]+v2[1]...\n",
+    "total = v1+v2\n",
+    "\n",
+    "print(\"Sum of two vectors is: \")\n",
+    "print(total)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "difference of two vectors is: \n",
+      "[  5  15 -23  -5   5]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Subtraction of two vectors\n",
+    "\n",
+    "#difference=v2[0]-v1[0],v2[1]-v1[1]...\n",
+    "difference = v2-v1\n",
+    "\n",
+    "print(\"difference of two vectors is: \")\n",
+    "print(difference)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Product of two vectors is: \n",
+      "[  6  34 248 126  50]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Multiplication of two vectors\n",
+    "\n",
+    "#product=v1[0]*v2[0],v1[1]*v2[1]...\n",
+    "product = v1*v2\n",
+    "\n",
+    "print(\"Product of two vectors is: \")\n",
+    "print(product)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Division of two vectors is: \n",
+      "[6.         8.5        0.25806452 0.64285714 2.        ]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Division of two vectors\n",
+    "\n",
+    "#division=v2[0]/v1[0],v2[1]/v2[1]...\n",
+    "division = v2/v1\n",
+    "\n",
+    "print(\"Division of two vectors is: \")\n",
+    "print(division)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Dot product of two vectors: \n",
+      "464\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Vector dot\n",
+    "\n",
+    "#dot = v1.v2 = (v1[0]*v2[0]+v2[1]*v2[1]...)\n",
+    "dot = v1.dot(v2)\n",
+    "\n",
+    "print(\"Dot product of two vectors: \")\n",
+    "print(dot)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Result of the scalar multiplication is: \n",
+      "[ 5 10 15 20 25]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Vector scalar multiplication\n",
+    "\n",
+    "#declare a scalar value\n",
+    "scalar=5\n",
+    "\n",
+    "#creating a vector\n",
+    "l3=[1,2,3,4,5]\n",
+    "v3=np.array(l3)\n",
+    "\n",
+    "#scalar_product = v3[0]*scalar,v3[1]*scalar...\n",
+    "scalar_product = v3*scalar\n",
+    "\n",
+    "print(\"Result of the scalar multiplication is: \")\n",
+    "print(scalar_product)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The array created is [[1 2 3]\n",
+      " [4 5 6]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Creating an array\n",
+    "arr = np.array([(1, 2, 3), (4, 5, 6)])\n",
+    "\n",
+    "#printing the array\n",
+    "print(\"The array created is \"+str(arr))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The array after the typecasting: [[0.4 5.  6. ]\n",
+      " [1.  2.  3. ]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Explicit type casting of a numpy array\n",
+    "arr_typecast = np.array([(0.4,5,6),(1,2,3)])\n",
+    "\n",
+    "#printing the resultant arra\n",
+    "print(\"The array after the typecasting: \"+str(arr_typecast) )"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "2"
+      ]
+     },
+     "execution_count": 35,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#The number of dimensions/axes of an array\n",
+    "arr.ndim"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(2, 3)"
+      ]
+     },
+     "execution_count": 28,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#The number of rows and columns\n",
+    "arr.shape"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "dtype('int32')"
+      ]
+     },
+     "execution_count": 37,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#The datatype of the elements\n",
+    "arr.dtype"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "4"
+      ]
+     },
+     "execution_count": 30,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#The size of each element i.e data type size\n",
+    "arr.itemsize"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "6"
+      ]
+     },
+     "execution_count": 31,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#The total number of elements in the array\n",
+    "arr.size"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 43,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Indexing:\n",
+      "14\n",
+      "\n",
+      "Slicing\n",
+      "[15 18 20]\n",
+      "\n",
+      "Iterating and printing each element of the vector\n",
+      "10\n",
+      "14\n",
+      "15\n",
+      "18\n",
+      "20\n",
+      "91\n",
+      "Reverse\n",
+      "[91 20 18 15 14 10]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Indexing,Slicing and iterating a vector(1-D array)\n",
+    "\n",
+    "#creating a vector\n",
+    "one_d= np.array([10,14,15,18,20,91])\n",
+    "\n",
+    "#Printing the first index i.e second element in a vector\n",
+    "print(\"Indexing:\")\n",
+    "print(one_d[1])\n",
+    "\n",
+    "#Slicing the vector in a specific range\n",
+    "print(\"\\nSlicing\")\n",
+    "print(one_d[2:5])\n",
+    "\n",
+    "#Iterating over the elements\n",
+    "print(\"\\nIterating and printing each element of the vector\")\n",
+    "for i in one_d:\n",
+    "    print(i)\n",
+    "    \n",
+    "#Printing reveresed vector\n",
+    "print(\"Reverse\")\n",
+    "print(one_[::-1])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 49,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Individual column:\n",
+      "[ 2  5  8 11]\n",
+      "Individiual row\n",
+      "[7 8 9]\n",
+      "Row slicing\n",
+      "[[1 2 3]\n",
+      " [4 5 6]]\n",
+      "Column slicing\n",
+      "[[ 2  3]\n",
+      " [ 5  6]\n",
+      " [ 8  9]\n",
+      " [11 12]]\n",
+      "Rows and column slicing and indexing\n",
+      "[[2 3]\n",
+      " [5 6]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Indexing,Slicing and iterating multidimensional arrays\n",
+    "multi = np.array([(1, 2, 3), (4, 5, 6),(7,8,9),(10,11,12)])\n",
+    "\n",
+    "#Accessing individual columns\n",
+    "print(\"Individual column:\")\n",
+    "#prints second column\n",
+    "print(multi[:,1])\n",
+    "\n",
+    "#Accessing individual rows\n",
+    "print(\"Individiual row\")\n",
+    "#prints third row\n",
+    "print(multi[2,:])\n",
+    "\n",
+    "#slicing of rows\n",
+    "print(\"Row slicing\")\n",
+    "#prints first two rows with all its column values\n",
+    "print(multi[0:2,:])\n",
+    "\n",
+    "#slicing of columns\n",
+    "print(\"Column slicing\")\n",
+    "#prints second and third column values of all rows\n",
+    "print(multi[:,1:3])\n",
+    "\n",
+    "#slicing of rows and columns\n",
+    "print(\"Rows and column slicing and indexing\")\n",
+    "print(multi[0:2,1:3])\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 51,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Last row:  [10 11 12]\n",
+      "[4 5 6]\n",
+      "[ 3  6  9 12]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Get the last row\n",
+    "print(\"Last row: \", multi[-1])\n",
+    "\n",
+    "# same as multi[1, :, :] or multi[1]\n",
+    "print(multi[1, ...] )\n",
+    "\n",
+    "# same as multi[:, :, 2]\n",
+    "print(multi[...,2])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 52,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1 2 3]\n",
+      "[4 5 6]\n",
+      "[7 8 9]\n",
+      "[10 11 12]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#iterating is similar to one-dimension array\n",
+    "for i in multi:\n",
+    "    print(i)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 59,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Matrix creation with string input\n",
+      "\n",
+      "[[4 5]\n",
+      " [6 7]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Matrix creation\n",
+    "\n",
+    "#when giving a string the rows should be seperated with a semicolon and enclosed in quotes\n",
+    "matrix1 = np.matrix('4 5;6 7 ')\n",
+    "print(\"Matrix creation with string input\\n\")\n",
+    "print(matrix1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 63,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Matrix creation with array-like input\n",
+      "\n",
+      "[[4 5 7]\n",
+      " [6 7 9]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Matrix creation\n",
+    "\n",
+    "#We can give an array-like input to create a matrix\n",
+    "matrix2=np.matrix([[4,5,7],[6,7,9]])\n",
+    "print(\"Matrix creation with array-like input\\n\")\n",
+    "print(matrix2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 64,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The result of matrix multiplication\n",
+      "[[ 46  55  73]\n",
+      " [ 66  79 105]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Matrix Multiplication example\n",
+    "\n",
+    "matrix_mul = matrix1*matrix2\n",
+    "print(\"The result of matrix multiplication\")\n",
+    "print(matrix_mul)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 66,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The result using the matrix power operator\n",
+      "[[46 55]\n",
+      " [66 79]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Matrix power operator\n",
+    "\n",
+    "matrix_power=matrix1**2\n",
+    "print(\"The result using the matrix power operator\")\n",
+    "print(matrix_power)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 71,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "12\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Important methods of a matrix\n",
+    "\n",
+    "matrix_example = np.matrix('4 1 5; 10 11 12; 7 8 9')\n",
+    "\n",
+    "#print the maximum element of the matrix\n",
+    "print(\"Maximum element of the matrix\")\n",
+    "print(matrix_example.max())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 72,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "Diagonal of the matrix:\n",
+      "[[ 4 11  9]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#print the minimum element of the matrix\n",
+    "print(\"Minimum element of the matrix\")\n",
+    "print(matrix_example.min())\n",
+    "\n",
+    "#diagonal of the matrix\n",
+    "print(\"Diagonal of the matrix:\")\n",
+    "print(matrix_example.diagonal())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 77,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Mean along the axis mentioned\n",
+      "[[5.]\n",
+      " [5.]\n",
+      " [5.]]\n",
+      "Filling matrix with a scalar value using fill method\n",
+      "\n",
+      "[[5 5 5]\n",
+      " [5 5 5]\n",
+      " [5 5 5]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#print the mean along second axis\n",
+    "print(\"Mean along the axis mentioned\")\n",
+    "print(matrix_example.mean(1))\n",
+    "\n",
+    "#Fill the entire matrix with value 5\n",
+    "print(\"Filling matrix with a scalar value using fill method\\n\")\n",
+    "matrix_example.fill(5)\n",
+    "print(matrix_example)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 83,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The original array is: [1 2 3 4 5 6]\n",
+      "The reshaped array: \n",
+      "[[1 2 3]\n",
+      " [4 5 6]]\n",
+      "Array after flatteing it[1 2 3 4 5 6]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Examples using the reshape method\n",
+    "\n",
+    "#reshape from 1-D to 2-D array\n",
+    "arr=np.array([1,2,3,4,5,6])\n",
+    "\n",
+    "#original array\n",
+    "print(\"The original array is: \"+str(arr))\n",
+    "\n",
+    "reshaped_array=arr.reshape(2,3)\n",
+    "print(\"The reshaped array: \")\n",
+    "print(reshaped_array)\n",
+    "\n",
+    "#Flatteing an array pass -1 as the argument\n",
+    "flat_array=reshaped_array.reshape(-1)\n",
+    "print(\"Array after flatteing it\"+ str(flat_array))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 85,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[[1]\n",
+      "  [2]]\n",
+      "\n",
+      " [[3]\n",
+      "  [4]]\n",
+      "\n",
+      " [[5]\n",
+      "  [6]]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#If we dont know a dimension pass -1\n",
+    "\n",
+    "unknown=arr.reshape(3,2,-1)\n",
+    "print(\"The new array when a dimension is unknown\")\n",
+    "print(unknown)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

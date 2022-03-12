@@ -1,0 +1,30 @@
+Assigment 1
+
+ Import a data set; country_wise_latest.csv(covid data set)
+
+https://www.kaggle.com/imdevskp/corona-virus-report?select=country_wise_latest.csv
+
+1. Find out mean for  all numerical  variables.
+
+2. Find out trimmed mean for all numerical variable 
+#trimmed mean excludes the largest and smallest five .
+
+3. Find median for all numerical variables.
+
+4. Find out standard deviation for all numerical variables.
+
+5. Find out IQR(Interquartile range) for all numerical variables
+
+6. Find out 50%th Pecentile for for all numerical variables.
+
+7. Create box plots for each country .(select any 2 countries)
+
+8. Create histograms for each contry. (select any 2 countries)
+
+9. Create bar chats for each country. (select any 2 countries)
+
+10. find the corraltions between variables.
+
+
+
+
