@@ -1,0 +1,52 @@
+Assigment2 -Neural Network -sklearn 
+
+#Import requried Libaries 
+
+
+
+
+
+1.#import data set
+
+
+2.#veiw first few rows
+
+
+3.# insert hear column headers 
+df.columns =['name', 'hair', 'feathers', 'eggs', 'milk', 'airbone', 'aquatic', 'predator', 'toothed', 'backone', 'breathes', 'venomous', 'fins', 'legs', 'tail', 'domestic', 'catsize', 'type'
+]
+
+
+# view header 
+
+
+4.# pint out the shape and describe 
+
+
+x =df.iloc[:, :-1]
+y =df.iloc[:, -1]
+
+5.#encode our target variable into a nummerical vairable encode label encode command
+
+from sklearn.preprocessing import OneHotEncoder
+
+encoded_x = OneHotEncoder().fit_transform(x).toarray()
+print(encoded_x)
+
+6. #Split into Traning & Testing Sets   
+
+x_train, x_test, y_train, y_test = train_test_split(encoded_x, y, test_size=0.30, random_state=123)
+
+
+7.#Print feature data
+
+
+8.# Create Clasifier Object
+
+
+
+9.# Make Predictions
+
+
+
+10.# Print metrics/see the accuracy and confusion matrix 

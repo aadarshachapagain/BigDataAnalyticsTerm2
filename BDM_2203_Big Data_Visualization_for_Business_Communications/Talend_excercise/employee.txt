@@ -1,0 +1,6 @@
+empno,emp_name,location,address
+1,"A","TX","Dallas, Texas"
+2,"B","DC","colombia"
+3,"C","NY","New York"
+4,"D","CH","Chicago"
+5,"E","MO","Missouri"
